@@ -4,7 +4,22 @@ import React from 'react';
 
 class App extends React.Component {
   state = {
+    includeLetters: false,
+    includeNumbers: false,
+    includeSymbols: false,
     password: '',
+  }
+
+  onChangeUseLetters = () => {
+    this.setState(({includeLetters}) => ({includeLetters: !includeLetters}));
+  }
+
+  onChangeUseNumbers = () => {
+    this.setState(({includeNumbers}) => ({includeNumbers: !includeNumbers}));
+  }
+
+  onChangeUseSymbols = () => {
+    this.setState(({includeSymbols}) => ({includeSymbols: !includeSymbols}));
   }
 
   onButtonClick = () => {
@@ -23,15 +38,15 @@ class App extends React.Component {
   
         <div>
           <label>Use letters</label>
-          <input type="checkbox" />
+          <input onChange={this.onChangeUseLetters} type="checkbox" />
         </div>
         <div>
           <label>Use numbers</label>
-          <input type="checkbox" />
+          <input onChange={this.onChangeUseNumbers} type="checkbox" />
         </div>
         <div>
           <label>Use symbols</label>
-          <input type="checkbox" />
+          <input onChange={this.onChangeUseSymbols} type="checkbox" />
         </div>
   
         <div>
