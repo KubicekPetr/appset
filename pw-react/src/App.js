@@ -4,10 +4,18 @@ import React from 'react';
 
 class App extends React.Component {
   state = {
+    length: 1,
     includeLetters: false,
     includeNumbers: false,
     includeSymbols: false,
     password: '',
+  }
+
+  onChangeLength = (event) => {    
+    const parsedValue = parseInt(event.target.value);
+    if (!isNaN(parsedValue)) {
+      this.setState({length: parsedValue});
+    }
   }
 
   onChangeUseLetters = () => {
@@ -33,7 +41,7 @@ class App extends React.Component {
   
         <div>
           <label>Enter length</label>
-          <input type="text" />
+          <input onInput={this.onChangeLength} type="text" />
         </div>
   
         <div>
