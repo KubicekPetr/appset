@@ -31,7 +31,30 @@ class App extends React.Component {
   }
 
   onButtonClick = () => {
-    this.setState({password: 'My password'});
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const symbols = '!@#$%^&*()';
+
+    const { includeLetters, includeNumbers, includeSymbols, length } = this.state;
+    
+    let validChars = '';
+    if (includeNumbers) {
+      validChars += numbers;
+    }
+    if (includeLetters) {
+      validChars += letters;
+    }
+    if (includeSymbols) {
+      validChars += symbols;
+    }
+
+    let generatedPassword = '';
+    for (let i = 0; i < length; i++) {
+      const index = Math.floor(Math.random() * validChars.length);
+      generatedPassword += validChars[index];
+    }
+
+    this.setState({password: generatedPassword});
   }
 
   render() {
