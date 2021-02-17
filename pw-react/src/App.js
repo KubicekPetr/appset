@@ -60,40 +60,57 @@ class App extends React.Component {
   render() {
     const { includeLetters, includeNumbers, includeSymbols, length } = this.state;
     return (
-      <div className="App">
-        <h1>Password generator</h1>
-  
-        <div>
-          <label>Enter length</label>
-          <input onInput={this.onChangeLength} type="text" />
-        </div>
-  
-        <div>
-          <label>Use letters</label>
-          <input onChange={this.onChangeUseLetters} type="checkbox" />
-        </div>
-        <div>
-          <label>Use numbers</label>
-          <input onChange={this.onChangeUseNumbers} type="checkbox" />
-        </div>
-        <div>
-          <label>Use symbols</label>
-          <input onChange={this.onChangeUseSymbols} type="checkbox" />
-        </div>
-  
-        <div>
-          <button 
-            disabled={!(length && (includeLetters || includeNumbers || includeSymbols))} 
-            onClick={this.onButtonClick}
-            >Generate
-          </button>
-        </div>
-  
-        <div>
-          <label>Your password</label>
-          <input defaultValue={this.state.password} type="text" />
+<div className="container">
+  <div className="columns is-centered">
+    <div className="box column is-one-third">
+      <h1 className="title has-text-centered">Password Generator</h1>
+
+      <div className="field">
+        <label>Length</label>
+        <input className="input" onInput={this.onChangeLength} />
+      </div>
+
+      <div className="field">
+        <div className="control">
+          <label className="checkbox">
+            <input onChange={this.onChangeUseLetters} type="checkbox" />
+            <span> Use Letters</span>
+          </label>
         </div>
       </div>
+
+      <div className="field">
+        <div className="control">
+          <label className="checkbox">
+            <input onChange={this.onChangeUseNumbers} type="checkbox" />
+            <span> Use Numbers</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="field">
+        <div className="control">
+          <label className="checkbox">
+            <input onChange={this.onChangeUseSymbols} type="checkbox" />
+            <span> Use Symbols</span>
+          </label>
+        </div>
+      </div>
+
+      <button 
+      disabled={!(length && (includeLetters || includeNumbers || includeSymbols))} 
+      onClick={this.onButtonClick}
+      className="button is-link is-fullwidth">
+        Generate!
+      </button>
+
+      <div className="box">
+        <label>Your Password</label>
+        <input className="input"  defaultValue={this.state.password} />
+      </div>
+    </div>
+  </div>
+</div>
     );
   }
 }
