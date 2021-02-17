@@ -4,7 +4,7 @@ import React from 'react';
 
 class App extends React.Component {
   state = {
-    length: 1,
+    length: 0,
     includeLetters: false,
     includeNumbers: false,
     includeSymbols: false,
@@ -58,6 +58,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { includeLetters, includeNumbers, includeSymbols, length } = this.state;
     return (
       <div className="App">
         <h1>Password generator</h1>
@@ -81,7 +82,11 @@ class App extends React.Component {
         </div>
   
         <div>
-          <button onClick={this.onButtonClick}>Generate</button>
+          <button 
+            disabled={!(length && (includeLetters || includeNumbers || includeSymbols))} 
+            onClick={this.onButtonClick}
+            >Generate
+          </button>
         </div>
   
         <div>

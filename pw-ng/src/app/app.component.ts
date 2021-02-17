@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  length = 1;
+  length = 0;
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
