@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { includeLetters, includeNumbers, includeSymbols, length } = this.state;
+    const { includeLetters, includeNumbers, includeSymbols, length, password } = this.state;
     return (
 <div className="container">
   <div className="columns is-centered">
@@ -104,10 +104,14 @@ class App extends React.Component {
         Generate!
       </button>
 
-      <div className="box">
-        <label>Your Password</label>
-        <input className="input"  defaultValue={this.state.password} />
-      </div>
+      {
+        password ? (
+          <div className="box">
+            <label>Your Password</label>
+            <input className="input"  defaultValue={this.state.password} />
+          </div>
+        ) : null
+      }
     </div>
   </div>
 </div>
