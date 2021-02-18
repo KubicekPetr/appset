@@ -108,7 +108,7 @@ class App extends React.Component {
         password ? (
           <div className="box">
             <label>Your Password</label>
-            <input className="input"  defaultValue={this.state.password} />
+            <input className="input" readOnly value={this.state.password} />
           </div>
         ) : null
       }
