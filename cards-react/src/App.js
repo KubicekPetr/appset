@@ -26,24 +26,17 @@ const posts = [
 function App() {
   return (
     <div>
-      <Card
-        title={posts[0].title}
-        imageUrl={posts[0].imageUrl}
-        userName={posts[0].userName}
-        content={posts[0].content}
-      />
-      <Card
-        title={posts[1].title}
-        imageUrl={posts[1].imageUrl}
-        userName={posts[1].userName}
-        content={posts[1].content}
-      />
-      <Card
-        title={posts[2].title}
-        imageUrl={posts[2].imageUrl}
-        userName={posts[2].userName}
-        content={posts[2].content}
-      />
+      {
+        posts.map(({title, imageUrl, userName, content}) => (
+          <Card
+            key={title}
+            title={title}
+            imageUrl={imageUrl}
+            userName={userName}
+            content={content}
+          />
+        ))
+      }
     </div>
   );
 }
