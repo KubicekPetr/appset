@@ -3,6 +3,10 @@ import { lorem } from 'faker';
 
 const sentence = lorem.sentence();
 
+const handleUserInput = (event) => {
+  console.log(event.target.value);
+};
+
 function App() {
   return (
     <div className="container">
@@ -15,7 +19,7 @@ function App() {
           </p>
 
           <div className="field">
-            <input className="input" type="text" />
+            <input onInput={handleUserInput} className="input" type="text" />
           </div>
 
           <div className="box has-text-centered">

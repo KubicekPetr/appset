@@ -8,7 +8,7 @@
       </p>
       
       <div class="field">
-        <input class="input" type="text" />
+        <input (input)="handleUserInput($event.target.value)" class="input" type="text" />
       </div>
       
       <div class="box has-text-centered">
