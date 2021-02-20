@@ -11,7 +11,7 @@
         <input (input)="handleUserInput($event.target.value)" class="input" type="text" />
       </div>
       
-      <div *ngIf="correct" class="box has-text-centered">
+      <div [style.display]="correct ? 'block' : 'none'" class="box has-text-centered">
         <h2 class="title">You win</h2>
       </div>
     </div>

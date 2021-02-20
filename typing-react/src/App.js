@@ -27,9 +27,11 @@ class App extends React.Component {
               <input onInput={handleUserInput} className="input" type="text" />
             </div>
 
-            {this.state.correct ? (<div className="box has-text-centered">
+            <div 
+            style={{ display: this.state.correct ? 'block' : 'none' }} 
+            className="box has-text-centered">
               <h2 className="title">You win</h2>
-            </div>) : null}
+            </div>
           </div>
         </div>
       </div>
