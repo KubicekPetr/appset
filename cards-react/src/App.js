@@ -25,7 +25,7 @@ const posts = [
 
 function App() {
   return (
-    <div>
+    <div className="App">
       {
         posts.map(({title, imageUrl, userName, content}) => (
           <Card
