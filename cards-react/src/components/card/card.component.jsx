@@ -1,20 +1,20 @@
 import './card.component.css';
 
-const Card = () => (
+const Card = ({ title, imageUrl, userName, content }) => (
     <div className="card">
         <div className="card-image">
             <figure className="image is-4by3">
-                <img src="tree.jpeg" alt="tree" />
+                <img src={imageUrl} alt="tree" />
             </figure>
         </div>
 
         <div className="card-content">
             <div className="media-content">
-                <p className="title is-4">Neat tree</p>
-                <p className="subtitle is-6">@nature</p>
+                <p className="title is-4">{title}</p>
+                <p className="subtitle is-6">@{userName}</p>
             </div>
             <div className="content">
-                Saw this awesome tree during my hike today.
+                {content}
             </div>
         </div>
     </div>
