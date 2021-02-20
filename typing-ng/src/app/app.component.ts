@@ -8,6 +8,7 @@ import { lorem } from 'faker';
 })
 export class AppComponent {
   sentence = lorem.sentence();
+  correct = false;
 
   handleUserInput(value: string) {
     console.log(value);
