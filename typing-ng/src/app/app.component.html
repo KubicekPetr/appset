@@ -4,14 +4,17 @@
       <h1 class="title has-text-centered">Typing challenge</h1>
 
       <p class="has-text-centered">
-        {{ sentence }}
+        <span
+        *ngFor="let letter of sentence.split(''), let i = index"
+        [style.color]="colorLetters(letter, inputSentence[i])"
+        >{{ letter }}</span>
       </p>
       
       <div class="field">
         <input (input)="handleUserInput($event.target.value)" class="input" type="text" />
       </div>
       
-      <div [style.display]="correct ? 'block' : 'none'" class="box has-text-centered">
+      <div [style.display]="inputSentence === sentence ? 'block' : 'none'" class="box has-text-centered">
         <h2 class="title">You win</h2>
       </div>
     </div>

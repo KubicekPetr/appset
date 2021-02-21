@@ -8,9 +8,13 @@ import { lorem } from 'faker';
 })
 export class AppComponent {
   sentence = lorem.sentence();
-  correct = false;
+  inputSentence = '';
 
   handleUserInput(value: string) {
-    console.log(value);
+    this.inputSentence = value;
+  }
+
+  colorLetters(letter, inputLetter) {
+    return inputLetter === letter ? '#55ff55' : (inputLetter ? '#ff5555' : 'grey');
   }
 }
