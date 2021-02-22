@@ -1,6 +1,14 @@
-<div>
-  <label>Payee name</label>
-  <input (input)="onNameChange($event.target.value)" />
-</div>
+<div class="container">
+  <h3>Payment form</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label>Payee name</label>
+      <input class="form-control" (input)="onNameChange($event.target.value)" />
+    </div>
 
-{{ name }}
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>{{ name }}</div>
+    </div>
+  </div>
+</div>

@@ -12,13 +12,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div>
-          <label>Payee name</label>
-          <input onInput={this.onNameChange} />
-        </div>
+      <div className="container">
+        <h3>Payment form</h3>
+        <div className="row">
+          <div className="form-group col">
+            <label>Payee name</label>
+            <input className="form-control" onInput={this.onNameChange} />
+          </div>
 
-        {this.state.name}
+          <div className="col">
+            <label><b>Name</b></label>
+            <div>{this.state.name}</div>
+          </div>
+        </div>
       </div>
     );
   }
