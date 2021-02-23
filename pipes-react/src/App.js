@@ -10,6 +10,8 @@ class App extends React.Component {
     this.setState({ name: value });
   }
 
+  titlecase = (value) => value.replace(/(^[a-z])|(\s+[a-z])/g, txt => txt.toUpperCase());
+
   render() {
     return (
       <div className="container">
@@ -22,7 +24,7 @@ class App extends React.Component {
 
           <div className="col">
             <label><b>Name</b></label>
-            <div>{this.state.name}</div>
+            <div>{this.titlecase(this.state.name)}</div>
           </div>
         </div>
       </div>
