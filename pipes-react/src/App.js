@@ -6,6 +6,7 @@ class App extends React.Component {
     name: '',
     date: '',
     amount: '',
+    height: '',
   }
 
   onInputChange = ({ target: { name, value } }) => {
@@ -58,6 +59,17 @@ class App extends React.Component {
           <div className="col">
             <label><b>Payment amount</b></label>
             <div>{this.currency(this.state.amount, 'CZK')}</div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="form-group col">
+            <label>Height</label>
+            <input name="height" className="form-control" onInput={this.onInputChange} />
+          </div>
+          <div className="col">
+            <label><b>Height</b></label>
+            <div>{this.state.height}</div>
           </div>
         </div>
       </div>
