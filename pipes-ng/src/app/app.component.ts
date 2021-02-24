@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name: string;
   date: string;
+  amount: number;
 
   onInputChange(name: string, value: string) {
-    this[name] = value;
+    this[name] = typeof(this[name]) === 'number' ? parseFloat(value) : value;
   }
 }
