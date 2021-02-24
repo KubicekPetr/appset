@@ -10,6 +10,7 @@ export class AppComponent {
   date: string;
   amount: number;
   height: number;
+  miles: number;
 
   onInputChange(name: string, value: string) {
     this[name] = typeof(this[name]) === 'number' ? parseFloat(value) : value;
