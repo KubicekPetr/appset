@@ -5,11 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ConvertMilesToKmPipe implements PipeTransform {
 
-  transform(value: number, ...args: unknown[]): unknown {
+  transform(value: number, floatingPointDirection: string, changeUnitsBy: number): unknown {
     if (!value) {
       return '';
     }
-    return value * 1.60934;
+    switch(floatingPointDirection) {
+      case '*':
+        return value * 1.60934 * changeUnitsBy;
+        break;
+      default:
+        return value * 1.60934;
+    }
   }
 
 }
