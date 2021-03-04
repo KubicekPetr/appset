@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  let [currentPage, setCurrentPage] = useState(0);
   const images = [
     {
       title: 'Table setup',
@@ -30,7 +30,7 @@ const App = () => {
     <div className="App">
       <nav>
         <div className="pagination">
-          <li className={`page-item ${currentPage <= 0 ? 'disabled' : ''}`}>
+          <li onClick={() => setCurrentPage(--currentPage)} className={`page-item ${currentPage <= 0 ? 'disabled' : ''}`}>
             <a className="page-link">Previous</a>
           </li>
           {
@@ -46,7 +46,7 @@ const App = () => {
               );
             })
           }
-          <li className={`page-item ${currentPage >= 4 ? 'disabled' : ''}`}>
+          <li onClick={() => setCurrentPage(++currentPage)} className={`page-item ${currentPage >= images.length - 1 ? 'disabled' : ''}`}>
             <a className="page-link">Previous</a>
           </li>
         </div>
