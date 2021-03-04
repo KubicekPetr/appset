@@ -30,6 +30,9 @@ const App = () => {
     <div className="App">
       <nav>
         <div className="pagination">
+          <li className={`page-item ${currentPage <= 0 ? 'disabled' : ''}`}>
+            <a className="page-link">Previous</a>
+          </li>
           {
             images.map((image, idx) => {
               return (
@@ -43,6 +46,9 @@ const App = () => {
               );
             })
           }
+          <li className={`page-item ${currentPage >= 4 ? 'disabled' : ''}`}>
+            <a className="page-link">Previous</a>
+          </li>
         </div>
       </nav>
     </div>
