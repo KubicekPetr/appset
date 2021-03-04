@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import './App.css';
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState(0);
   const images = [
     {
       title: 'Table setup',
@@ -31,7 +33,11 @@ const App = () => {
           {
             images.map((image, idx) => {
               return (
-                <li key={idx} className="page-item">
+                <li
+                  key={idx}
+                  className={`page-item ${idx === currentPage ? 'active' : ''}`}
+                  onClick={() => setCurrentPage(idx)}
+                >
                   <a className="page-link">{idx + 1}</a>
                 </li>
               );
