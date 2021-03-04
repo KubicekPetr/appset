@@ -26,7 +26,19 @@ const App = () => {
 
   return (
     <div className="App">
-      
+      <nav>
+        <div className="pagination">
+          {
+            images.map((image, idx) => {
+              return (
+                <li key={idx} className="page-item">
+                  <a className="page-link">{idx + 1}</a>
+                </li>
+              );
+            })
+          }
+        </div>
+      </nav>
     </div>
   );
 }
