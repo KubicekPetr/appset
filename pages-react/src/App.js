@@ -95,15 +95,17 @@ const App = () => {
           </li>
           {
             images.map((image, idx) => {
-              return (
-                <li
-                  key={idx}
-                  className={`page-item ${idx === currentPage ? 'active' : ''}`}
-                  onClick={() => setCurrentPage(idx)}
-                >
-                  <a className="page-link">{idx + 1}</a>
-                </li>
-              );
+              if (idx < 5) {
+                return (
+                  <li
+                    key={idx}
+                    className={`page-item ${idx === currentPage ? 'active' : ''}`}
+                    onClick={() => setCurrentPage(idx)}
+                  >
+                    <a className="page-link">{idx + 1}</a>
+                  </li>
+                );
+              }
             })
           }
           <li onClick={() => setCurrentPage(prev => prev + 1)} className={`page-item ${currentPage >= images.length - 1 ? 'disabled' : ''}`}>
