@@ -6,7 +6,7 @@
     <ng-container *ngFor="let image of images; let i = index">
       <li
       (click)="currentPage = i"
-      *ngIf="i < 5"
+      *ngIf="checkWindowIndex(i)"
       class="page-item"
       [ngClass]="{ active: i === currentPage }"
       >

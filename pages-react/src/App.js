@@ -86,6 +86,8 @@ const App = () => {
     },
   ];
 
+  const checkWindowIndex = (index) => Math.abs(currentPage - index) < 5;
+
   return (
     <div className="App">
       <nav>
@@ -95,7 +97,7 @@ const App = () => {
           </li>
           {
             images.map((image, idx) => {
-              if (idx < 5) {
+              if (checkWindowIndex(idx)) {
                 return (
                   <li
                     key={idx}
