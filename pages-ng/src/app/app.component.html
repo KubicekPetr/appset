@@ -20,6 +20,6 @@
 </nav>
 
 <div *ngIf="images[currentPage]">
-  <h4>{{ images[currentPage].title }}</h4>
+  <h4 appClass>{{ images[currentPage].title }}</h4>
   <img [src]="images[currentPage].url" height="680" alt="images[currentPage].title">
 </div>
