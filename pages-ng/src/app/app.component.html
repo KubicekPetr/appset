@@ -1,6 +1,6 @@
 <nav>
   <div class="pagination">
-    <li (click)="currentPage = currentPage - 1" [ngClass]="{ disabled: currentPage <= 0 }" class="page-item">
+    <li (click)="currentPage = currentPage - 1" [appClass]="{ disabled: currentPage <= 0 }" class="page-item">
       <a class="page-link">Previous</a>
     </li>
     <ng-container *ngFor="let image of images; let i = index">
@@ -13,13 +13,13 @@
         <a class="page-link">{{ i + 1 }}</a>
       </li>
     </ng-container>
-    <li (click)="currentPage = currentPage + 1" [ngClass]="{ disabled: currentPage >= images.length - 1 }" class="page-item">
+    <li (click)="currentPage = currentPage + 1" [appClass]="{ disabled: currentPage >= images.length - 1 }" class="page-item">
       <a class="page-link">Next</a>
     </li>
   </div>
 </nav>
 
 <div *ngIf="images[currentPage]">
-  <h4 [appClass]="'#bada55'">{{ images[currentPage].title }}</h4>
+  <h4>{{ images[currentPage].title }}</h4>
   <img [src]="images[currentPage].url" height="680" alt="images[currentPage].title">
 </div>
