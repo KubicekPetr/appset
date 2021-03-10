@@ -1,15 +1,10 @@
 import './App.css';
-
-import { CollectionsHome } from './collections/index';
-import { ElementsHome } from './elements/index';
-import { } from './mods/index';
-import { } from './views/index';
+import RoutedModules from './Routing';
 
 function App() {
   return (
     <div>
-      <CollectionsHome />
-      <ElementsHome />
+      <RoutedModules></RoutedModules>
     </div>
   );
 }
