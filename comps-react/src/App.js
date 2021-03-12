@@ -1,15 +1,19 @@
 import './App.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import RoutedModules from './Routing';
 
 
 function App() {
   return (
-    <div>
-      <Link to="/elements">Elements</Link>
-      <Link to="/collections">Collections</Link>
-      <RoutedModules></RoutedModules>
+    <div className="ui container">
+      <div className="ui secondary pointing menu">
+        <NavLink to="/elements" activeClassName="active" className="item">Elements</NavLink>
+        <NavLink to="/collections" activeClassName="active" className="item">Collections</NavLink>
+      </div>
+      <div className="ui segment">
+        <RoutedModules></RoutedModules>
+      </div>
     </div>
   );
 }
