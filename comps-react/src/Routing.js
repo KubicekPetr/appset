@@ -6,15 +6,26 @@ import {
 import CollectionsRouting from './collections/routing';
 import ElementsRouting from './elements/routing';
 
-const routes = [
+import HomeComponent from './home/home.coponent';
+import NotFoundComponent from './not-found/not-found.component';
+
+const moduleRoutes = [
     ...CollectionsRouting,
     ...ElementsRouting,
 ];
 
+const commonRoutes = [
+    { exact: true, component: HomeComponent, path: '/' },
+    { component: NotFoundComponent }
+]
+
 const Modules = () => (
     <div>
         <Switch>
-            {routes.map((route, i) => (
+            {moduleRoutes.map((route, i) => (
+                <Route key={i} {...route} />
+            ))}
+            {commonRoutes.map((route, i) => (
                 <Route key={i} {...route} />
             ))}
         </Switch>
