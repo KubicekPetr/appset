@@ -1,7 +1,7 @@
-import CollectionsHomeComponent from './collections-home/collections-home.component';
-
 const routes = [
-    { path: '/collections', component: CollectionsHomeComponent },
+    { path: '/collections', component: 'collections-home/collections-home.component' },
 ];
 
 export default routes;
+
+export const CollectionsModule = 'collections';

@@ -3,15 +3,23 @@ import {
     Route,
 } from "react-router-dom";
 
-import CollectionsRouting from './collections/routing';
-import ElementsRouting from './elements/routing';
+import loadable from '@loadable/component'
+
+import CollectionsRouting, { CollectionsModule } from './collections/routing';
+import ElementsRouting, { ElementsModule } from './elements/routing';
 
 import HomeComponent from './home/home.coponent';
 import NotFoundComponent from './not-found/not-found.component';
 
+const loadChildren = (module, ...routing) => {
+    return routing.map(route => {
+        return loadable(() => import(`./${module}/${route.component}`));  
+    });
+};
+
 const moduleRoutes = [
-    ...CollectionsRouting,
-    ...ElementsRouting,
+    ...loadChildren(CollectionsModule, ...CollectionsRouting),
+    ...loadChildren(ElementsModule, ...ElementsRouting),
 ];
 
 const commonRoutes = [
@@ -22,7 +30,9 @@ const commonRoutes = [
 const Modules = () => (
     <div>
         <Switch>
-            {moduleRoutes.map((route, i) => (
+            {console.log(moduleRoutes)}
+            {
+            moduleRoutes.map((route, i) => (
                 <Route key={i} {...route} />
             ))}
             {commonRoutes.map((route, i) => (
